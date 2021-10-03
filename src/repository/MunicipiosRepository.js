@@ -5,13 +5,13 @@ class MunicipiosRepository {
     this.municipios = [];
   }
 
-  create({ nome, receita_url, despesa_url }) {
+  create({ nome, url, tipo_url }) {
     const municipio = new Municipio();
 
     Object.assign(municipio, {
       nome,
-      receita_url,
-      despesa_url,
+      url,
+      tipo_url,
       created_at: new Date(),
     });
 
