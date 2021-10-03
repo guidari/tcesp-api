@@ -28,7 +28,6 @@ municipioRoute.get("/:nome", (request, response) => {
   const { nome } = request.params;
 
   const municipio = municipiosRepository.findByName({ nome });
-  console.log(municipio);
 
   return response.status(201).json(municipio);
 });
