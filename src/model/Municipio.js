@@ -5,6 +5,8 @@ class Municipio {
   nome;
   url;
   tipo_url;
+  tipo_extracao;
+  status;
   created_at;
   updated_at;
 

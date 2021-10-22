@@ -6,7 +6,7 @@ const municipioRoute = Router();
 const municipiosRepository = new MunicipiosRepository();
 
 municipioRoute.post("/", (request, response) => {
-  const { nome, url, tipo_url } = request.body;
+  const { nome, url, tipo_url, status, tipo_extracao } = request.body;
 
   const municipioAlreadyExists = municipiosRepository.findByName({ nome });
 
@@ -14,7 +14,7 @@ municipioRoute.post("/", (request, response) => {
     return response.status(404).json({ error: "Municipio já cadastrado" });
   }
 
-  municipiosRepository.create({ nome, url, tipo_url });
+  municipiosRepository.create({ nome, url, tipo_url, status, tipo_extracao });
 
   return response.status(201).send();
 });
