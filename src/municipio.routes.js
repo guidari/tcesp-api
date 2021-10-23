@@ -24,6 +24,20 @@ municipioRoute.get("/", (request, response) => {
   return response.status(201).json(allMunicipios);
 });
 
+municipioRoute.delete("/:id", (request, response) => {
+  const { id } = request.params;
+
+  const municipio = municipiosRepository.findById({ id });
+
+  if (!municipio) {
+    return response.status(404).json({ error: "Municipio not found" });
+  }
+
+  municipiosRepository.delete({ id });
+
+  return response.status(204).send();
+});
+
 municipioRoute.get("/:nome", (request, response) => {
   const { nome } = request.params;
 

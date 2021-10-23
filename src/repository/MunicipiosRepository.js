@@ -20,10 +20,23 @@ class MunicipiosRepository {
     this.municipios.push(municipio);
   }
 
+  delete({ id }) {
+    const municipioIndex = this.municipios.findIndex(
+      (municipio) => municipio.id === id
+    );
+
+    this.municipios.splice(municipioIndex, 1);
+  }
+
   findByName({ nome }) {
     const municipio = this.municipios.find(
       (municipio) => municipio.nome === nome
     );
+    return municipio;
+  }
+
+  findById({ id }) {
+    const municipio = this.municipios.find((municipio) => municipio.id === id);
     return municipio;
   }
 
